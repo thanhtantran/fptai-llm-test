@@ -15,7 +15,7 @@ MODELS = [
 
 st.set_page_config(page_title="FPT.AI Chat Demo", page_icon="🤖")
 st.title("🤖 FPT.AI LLM Chat Demo")
-st.caption("Try the three allowed models with streaming responses.")
+st.caption("Thử 3 models của FPT bằng cách lựa chọn ở đây.")
 
 with st.sidebar:
     model_choice = st.selectbox("Model", MODELS, index=0)
@@ -31,7 +31,7 @@ for msg in st.session_state.messages:
         st.markdown(msg["content"])
 
 # --- Input ---
-prompt = st.chat_input("Type your question…")
+prompt = st.chat_input("Nhập vào câu hỏi của bạn …")
 if prompt:
     # Append user message
     st.session_state.messages.append({"role": "user", "content": prompt})
@@ -46,7 +46,7 @@ if prompt:
     payload = {
         "model": model_choice,
         "messages": [
-            {"role": "system", "content": "You are a helpful assistant. Reply in the same language as the user."},
+            {"role": "system", "content": "Bạn là trợ lý toàn năng, bạn hãy trả lời câu hỏi bằng ngôn ngữ của người dùng hỏi."},
             *st.session_state.messages
         ],
         "stream": True

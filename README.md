@@ -15,5 +15,7 @@ MODELS = [
 ]
 ```
 
+put your API key into `.env`
+
 # Run the streamlit app
 `streamlit run app.py`
